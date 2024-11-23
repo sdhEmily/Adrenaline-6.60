@@ -1,4 +1,4 @@
-6.61 Adrenaline
+6.60 Adrenaline
 ================================================================================
 
 A software that transforms your PS Vita into a two-in-one device
@@ -6,7 +6,7 @@ A software that transforms your PS Vita into a two-in-one device
 What is Adrenaline?
 -------------------
 Adrenaline is a software that modifies the official PSP Emulator using [taiHEN CFW framework](https://github.com/yifanlu/taiHEN)
-to make it run a PSP 6.61 custom firmware. Thanks to the power of taiHEN, Adrenaline can
+to make it run a PSP 6.60 custom firmware. Thanks to the power of taiHEN, Adrenaline can
 inject custom code into the IPL which allows unsigned code to run at boottime.
 
 How to update
@@ -20,7 +20,7 @@ Please only do this approach for a fresh installation, otherwise please refer to
 
 1. Remove the Adrenaline bubble and the `ux0:app/PSPEMUCFW/sce_module/adrenaline_kernel.skprx` path from the taiHEN config.txt and finally reboot your device.
 2. Download [Adrenaline.vpk](https://github.com/TheOfficialFloW/Adrenaline/releases) and install it using [VitaShell](https://github.com/TheOfficialFloW/VitaShell/releases).
-3. Launch Adrenaline and press ❌ to download the 6.61 firmware. After finishing it will automatically terminate.
+3. Launch Adrenaline and press ❌ to download the 6.60 firmware. After finishing it will automatically terminate.
 4. Relaunch Adrenaline, this time it will go into pspemu mode. Follow the instructions on screen.
 
 Getting rid of double launch bug

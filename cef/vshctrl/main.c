@@ -802,7 +802,7 @@ void PatchSysconfPlugin(u32 text_addr) {
 	int version_micro = version >> 8 & 0xFF;
 
 	char verinfo[50] = {0};
-	sprintf(verinfo, "6.61 Adrenaline-%d.%d.%d", version_major, version_minor, version_micro );
+	sprintf(verinfo, "6.60 Adrenaline-%d.%d.%d", version_major, version_minor, version_micro );
 
 	ascii2utf16( (char*)((void *)text_addr + 0x2A62C), verinfo);
 
@@ -871,7 +871,7 @@ int sceUpdateDownloadSetVersionPatched(int version) {
 	int (* sceUpdateDownloadSetVersion)(int version) = (void *)FindProc("SceUpdateDL_Library", "sceLibUpdateDL", 0xC1AF1076);
 	int (* sceUpdateDownloadSetUrl)(const char *url) = (void *)FindProc("SceUpdateDL_Library", "sceLibUpdateDL", 0xF7E66CB4);
 
-	sceUpdateDownloadSetUrl("http://adrenaline.sarcasticat.com/psp-updatelist.txt");
+	sceUpdateDownloadSetUrl("https://sdhemily.github.io/Adrenaline-6.60-Updater/psp-updatelist.txt");
 	int res = sceUpdateDownloadSetVersion(sctrlSEGetVersion());
 
 	pspSdkSetK1(k1);

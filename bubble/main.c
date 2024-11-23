@@ -41,7 +41,7 @@
 
 #define printf psvDebugScreenPrintf
 
-#define EBOOT_URL "http://de01.psp.update.playstation.org/update/psp/image/eu/2014_1212_6be8878f475ac5b1a499b95ab2f7d301/EBOOT.PBP"
+#define EBOOT_URL "http://de01.psp.update.playstation.org/update/psp/image/eu/2011_0810_2ca64d59dcf48f45fb99b400a586b395/EBOOT.PBP"
 #define ADRENALINE_USER_AGENT "Adrenaline/1.00 libhttp/1.1"
 
 static int downloadFile(const char *src, const char *dst) {
@@ -175,10 +175,10 @@ int main() {
 	SceIoStat stat;
 	memset(&stat, 0, sizeof(SceIoStat));
 	if (sceIoGetstat("ux0:app/" ADRENALINE_TITLEID "/flash0", &stat) < 0 &&
-		sceIoGetstat("ux0:app/" ADRENALINE_TITLEID "/661.PBP", &stat) < 0) {
-		printf("The 6.61 firmware has not been installed yet and 661.PBP does not\nexist.\n");
-		printf("Press X to download the PSP 6.61 firmware.\n");
-		printf("Press any other button to ignore it (but you need to manually\nput 661.PBP to ux0:app/" ADRENALINE_TITLEID "/661.PBP" ").\n\n");
+		sceIoGetstat("ux0:app/" ADRENALINE_TITLEID "/660.PBP", &stat) < 0) {
+		printf("The 6.60 firmware has not been installed yet and 660.PBP does not\nexist.\n");
+		printf("Press X to download the PSP 6.60 firmware.\n");
+		printf("Press any other button to ignore it (but you need to manually\nput 660.PBP to ux0:app/" ADRENALINE_TITLEID "/660.PBP" ").\n\n");
 
 		while (1) {
 			SceCtrlData pad;
@@ -187,7 +187,7 @@ int main() {
 			if (pad.buttons & SCE_CTRL_CROSS) {
 				initNet();
 
-				res = downloadFile(EBOOT_URL, "ux0:app/" ADRENALINE_TITLEID "/661.PBP");
+				res = downloadFile(EBOOT_URL, "ux0:app/" ADRENALINE_TITLEID "/660.PBP");
 				if (res < 0) {
 					printf("Error 0x%08X downloading file.\n", res);
 					while (1);

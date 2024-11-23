@@ -121,7 +121,7 @@ void Installer() {
 	memset(flash_table, 0, sizeof(flash_table));
 	memset(flash_table_size, 0, sizeof(flash_table_size));
 
-	printf("Press X to install the PSP 6.61 firmware on your Memory Card.\n\n");
+	printf("Press X to install the PSP 6.60 firmware on your Memory Card.\n\n");
 
 	while (1) {
 		SceCtrlData pad;
@@ -133,13 +133,13 @@ void Installer() {
 		sceKernelDelayThread(10 * 1000);
 	}
 
-	printf("Loading 661.PBP...");
+	printf("Loading 660.PBP...");
 	sceKernelDelayThread(1 * 1000 * 1000);
 
 	// Open file
-	SceUID fd = sceIoOpen("ms0:/__ADRENALINE__/661.PBP", PSP_O_RDONLY, 0);
+	SceUID fd = sceIoOpen("ms0:/__ADRENALINE__/660.PBP", PSP_O_RDONLY, 0);
 	if (fd < 0) {
-		printf("Cannot find ux0:app/" ADRENALINE_TITLEID "/661.PBP.\n");
+		printf("Cannot find ux0:app/" ADRENALINE_TITLEID "/660.PBP.\n");
 		goto EXIT;
 	}
 
@@ -155,7 +155,7 @@ void Installer() {
 
 	res = sceIoRead(fd, big_buffer, BIG_BUFFER_SIZE);
 	if (res <= 0) {
-		printf("Error reading 661.PBP (0x%08X).\n", res);
+		printf("Error reading 660.PBP (0x%08X).\n", res);
 		goto EXIT;
 	}
 
@@ -171,8 +171,8 @@ void Installer() {
 	}
 
 	char *version = GetVersion((char *)sm_buffer1 + 0x10);
-    if ((memcmp(version, "6.61", 4) != 0)) {
-		printf("Please optain the correct EBOOT.PBP for 6.61.\n");
+    if ((memcmp(version, "6.60", 4) != 0)) {
+		printf("Please optain the correct EBOOT.PBP for 6.60.\n");
 		goto EXIT;
 	}
 
@@ -232,7 +232,7 @@ void Installer() {
 			memmove(big_buffer, big_buffer + dpos, BIG_BUFFER_SIZE - dpos);
 			res = sceIoRead(fd, big_buffer + (BIG_BUFFER_SIZE - dpos), dpos);
 			if (res <= 0) {
-				printf("Error reading 661.PBP (0x%08X).\n", res);
+				printf("Error reading 660.PBP (0x%08X).\n", res);
 				goto EXIT;
 			}
 
